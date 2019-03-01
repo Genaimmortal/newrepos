@@ -1,0 +1,6 @@
+echo "# newrepos" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Genaimmortal/newrepos.git
+git push -u origin master
