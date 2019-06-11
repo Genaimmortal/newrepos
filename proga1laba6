@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+template <typename T> void bubbleSort(T *arr, const int size) {
+    T tmp;
+    for(int i=size-1; i >= 1; i--) {
+		for(int j=0; j<i; j++) {
+			if(arr[j] > arr[j+1]) {
+				tmp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = tmp;
+			}
+		}
+	}
+}
+int main() {
+	const int size = 9;
+	int iArr[size] = {7, -4, 3, 0, -1, 5, 7, 8, -7};
+	double dArr[size] = {7.93, -4.4, 3.567, 0.00001, -1.123, 5.556, 7.589, 9.654, -7.436e-4};
+	cout << "FIRST ARRAY: ";
+	for(int i=0; i<size; i++) {
+		cout << iArr[i] << " ";
+	}
+	cout << endl;
+	bubbleSort(iArr, size);
+	cout << "FIRST SORTED ARRAY: ";
+	for(int i=0; i<size; i++) {
+		cout << iArr[i] << " ";
+	}
+	cout << endl;
+	cout << "SECOND ARRAY: ";
+	for(int i=0; i<size; i++) {
+		cout << dArr[i] << " ";
+	}
+	cout << endl;
+	bubbleSort(dArr, size);
+	cout << "SECOND SORTED ARRAY: ";
+	for(int i=0; i<size; i++) {
+		cout << dArr[i] << " ";
+	}
+	cout << endl;
+    return 0;
+}
