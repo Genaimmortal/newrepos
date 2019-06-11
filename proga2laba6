@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+template <typename T> void bubbleSort(T *arr, const int size) {
+    T tmp;
+    for(int i=size-1; i >= 1; i--) {
+		for(int j=0; j<i; j++) {
+			if(arr[j] > arr[j+1]) {
+				tmp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = tmp;
+			}
+		}
+	}
+}
+template <typename T> class Rectangle {
+private:
+	T height = T();
+	T length = T();
+public:
+	Rectangle() {};
+	Rectangle (T h, T l) {
+		height = h;
+		length = l;
+	}
+	bool operator>(const Rectangle square) {
+		return height*length > square.height*square.length;
+	}
+	friend ostream &operator<<(ostream &outputStream, Rectangle square) {
+		return outputStream << square.height*square.length;
+	}
+};
+int main() {
+	unsigned op;
+	cout << "int/dbl: ";
+	cin >> op;
+	if(op == 1) {
+		int amount;
+		cout << "Введите количество объектов: ";
+		cin >> amount;
+		Rectangle <int> arr[amount];
+		int h1, l1;
+		for(int i=0; i < amount; i++) {
+			cout << i+1 << ") " << "Высота и ширина: ";
+			cin >> h1 >> l1;
+			Rectangle <int> obj(h1, l1);
+			arr[i] = obj;
+		}
+		cout << "Площади объектов:" << endl;
+		for(int i=0; i < amount; i++) {
+			cout << arr[i] << " ";
+		}
+		cout << endl;
+		bubbleSort(arr, amount);
+		cout << "Отсортированные площади:" << endl;
+		for(int i=0; i < amount; i++) {
+			cout << arr[i] << " ";
+		}
+		cout << endl;
+	}
+	else if(op == 2) {
+		int amount;
+		cout << "Введите количество объектов: ";
+		cin >> amount;
+		Rectangle <double> dblArr[amount];
+		double h2, l2;
+		for(int i=0; i < amount; i++) {
+			cout << i+1 << ") " << "Высота и ширина: ";
+			cin >> h2 >> l2;
+			Rectangle <double> obj(h2, l2);
+			dblArr[i] = obj;
+		}
+		cout << "Площади объектов: " << endl;
+		for(int i=0; i < amount; i++) {
+			cout << dblArr[i] << " ";
+		}
+		cout << endl;
+		bubbleSort(dblArr, amount);
+		cout << "Отсортированные площади: " << endl;
+		for(int i=0; i < amount; i++) {
+			cout << dblArr[i] << " ";
+		}
+		cout << endl;
+	}
+	return 0;
+}
