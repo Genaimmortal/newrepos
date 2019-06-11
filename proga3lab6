@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+template <typename T1, typename T2> class DoubleBox {
+private:
+	T1 content1 = T1();
+	T2 content2 = T2();
+public:
+	DoubleBox() {};
+	DoubleBox(const T1 value1, const T2 value2):content1(value1), content2(value2) {};
+	void setContent(const T1 value1, const T2 value2) {
+		content1 = value1;
+		content2 = value2;
+	}
+	T1 getContent1() const {
+		return content1;
+	}
+	T2 getContent2() const {
+		return content2;
+	}
+};
+int main() {
+	DoubleBox <int, float> testBox(3, 0.456);
+	cout << "Конструктор: " << testBox.getContent1() << " " << testBox.getContent2() << endl;
+	int a;
+	float b;
+	cout << "Введите значения: ";
+	cin >> a >> b;
+	testBox.setContent(a, b);
+	cout << "Метод setContent: "<< testBox.getContent1() << " " << testBox.getContent2() << endl;
+	return 0;
+}
