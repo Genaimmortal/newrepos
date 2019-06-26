@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int i;
+	int g;
+	int n;
+	cout<<"введите число";
+	cin>>n;
+	   for (i=2,g=0; i<n; i++)
+		   if (n%i == 0)
+			   g = g + 1;
+	if (g == 0)
+		cout<<""<<n<<" простое";
+	else
+		cout<<""<<n<<" не простое";
+	return 0;
+}

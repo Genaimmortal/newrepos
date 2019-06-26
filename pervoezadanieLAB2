@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int m;
+	int n;
+	cin>>m;
+	   double sum = 0;
+	int kol = 0;
+	do {
+		cin>>n;
+		   sum = sum + n;
+		kol = kol +1;
+	} while(kol!=m);
+		double S = sum/kol;
+	cout<<S<<endl;
+	return 0;
+}
+
